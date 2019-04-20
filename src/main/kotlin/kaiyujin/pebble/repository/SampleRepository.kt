@@ -11,9 +11,11 @@ import org.springframework.stereotype.Repository
 @Dao
 @Repository
 interface SampleRepository {
-    @Sql("""
+    @Sql(
+        """
   select name from sample
-  """)
+  """
+    )
     @Select
     fun findAll(): List<Sample>
 }

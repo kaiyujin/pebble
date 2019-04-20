@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class SampleService(
-        private val sampleRepository: SampleRepository
+    private val sampleRepository: SampleRepository
 ) {
     fun findAll(): List<Sample> {
         return sampleRepository.findAll()

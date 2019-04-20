@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/sample")
 class SampleController(
-        val sampleService: SampleService
+    val sampleService: SampleService
 ) {
     @GetMapping("")
     fun list(): List<Sample> {
