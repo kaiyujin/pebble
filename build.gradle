@@ -27,6 +27,14 @@ kapt {
     }
 }
 
+task copyDomaResources(type: Sync)  {
+    from sourceSets.main.resources.srcDirs
+    into compileKotlin.destinationDir
+    include 'doma.compile.config'
+    include 'META-INF/**/*.sql'
+    include 'META-INF/**/*.script'
+}
+
 dependencies {
     implementation "org.seasar.doma.boot:doma-spring-boot-starter:1.1.1"
     implementation "org.seasar.doma:doma:${domaVersion}"
@@ -48,6 +56,7 @@ dependencyManagement {
 }
 
 compileKotlin {
+    dependsOn copyDomaResources
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
         jvmTarget = '1.8'
